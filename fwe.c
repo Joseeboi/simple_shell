@@ -4,6 +4,12 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+/**
+ * pid_t - function of the child pid
+ *
+ * Return: 0
+ */
+
 int main(void)
 {
 	pid_t child_pid;
@@ -19,17 +25,18 @@ int main(void)
 		perror("Errror:");
 		return (1);
 	}
-	}	
+	}
 
 	if (child_pid == 0)
 	{
 		execve("/usr/bin/ls", arg, NULL);
 		perror("Error:");
-		exit(1);		
+		exit(1);	
 	}
 	else
-{
+	{
 	/*parent*/
-	wait(&status);	
-}
+	wait(&status);
+	}
+
 }
